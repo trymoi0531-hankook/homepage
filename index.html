@@ -21,6 +21,15 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             box-sizing: border-box;
         }
+
+        /* [추가] 상단 로고 스타일: 중앙 정렬 및 크기 조절 */
+        .top-logo {
+            display: block;
+            margin: 0 auto 30px auto; /* 중앙 정렬, 아래쪽 여백 */
+            max-width: 120px; /* 로고형태이므로 작게 설정 (원하는 크기로 조절 가능) */
+            height: auto;
+        }
+
         .main-img {
             max-width: 100%;
             height: auto;
@@ -79,7 +88,11 @@
 </head>
 <body>
     <div class="container">
-        <!-- 1. 대표 로고 / 상단 이미지 -->
+        <!-- 0. [추가] 최상단 중앙 로고 영역 -->
+        <!-- 파일명(src)은 실제 저장한 로고 이미지 파일명으로 변경해서 사용하세요 -->
+        <img src="logo.jpg" alt="한국만물 로고" class="top-logo">
+
+        <!-- 1. 대표 로고 / 상단 이미지 (로고 아래로 위치 변경됨) -->
         <img src="hankook-manmool_photo.jpg" alt="한국만물 대표 이미지" class="main-img">
 
         <!-- 2. 회사 설명 -->
