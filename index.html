@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국만물 - 공식 홈페이지</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+        .main-img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #666;
+            line-height: 1.7;
+            word-break: keep-all;
+        }
+        .status {
+            margin-top: 30px;
+            font-weight: bold;
+            color: #e67e22; /* 오렌지색으로 강조 */
+        }
+        /* 명함 영역 스타일 (하단 우측 정렬) */
+        .card-section {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: flex-end; /* 우측 정렬 */
+            align-items: center;
+        }
+        .business-card {
+            width: 280px; /* 표준 명함 비율 반영 크기 */
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.2s ease;
+        }
+        .business-card:hover {
+            transform: scale(1.02); /* 마우스 호버 시 살짝 확대 효과 */
+        }
+
+        /* 모바일 화면 대응 반응형 */
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px 20px;
+            }
+            .card-section {
+                justify-content: center; /* 모바일에서는 중앙 정렬 */
+            }
+            .business-card {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 1. 대표 로고 / 상단 이미지 -->
+        <img src="hankook-manmool_photo.jpg" alt="한국만물 대표 이미지" class="main-img">
+
+        <!-- 2. 회사 설명 -->
+        <h1>한국만물</h1>
+        <p>
+            한국만물은 경북 예천, 안동, 영주의 맑고 청정한 자연이 키워낸 고품질 우수 농축산물을 발굴하여 고객의 식탁으로 정직하게 전하는 프리미엄 로컬 유통 브랜드입니다.<br><br>
+            저온압착으로 고소함과 영양을 그대로 담아낸 100% 국산 들기름·참기름부터, 백두대간의 자연을 담은 천연 아카시아벌꿀까지 엄격한 위생 검증과 안전한 품질 관리를 거친 바른 먹거리만을 고집합니다.<br><br>
+            산지 생산자와의 상생 직거래를 통해 신선함은 높이고 유통 거품은 줄였습니다. 자연의 순수함과 전통의 깊은 맛을 이어가는 한국만물에서 믿을 수 있는 우리 농산물의 가치를 경험해 보세요.
+        </p>
+
+        <!-- 3. 오픈 준비중 안내 문구 -->
+        <p class="status">현재 홈페이지 정식 오픈을 위해 작업 중입니다.<br>잠시만 기다려주세요.</p>
+
+        <!-- 4. 하단 우측 명함 배치 영역 -->
+        <div class="card-section">
+            <img src="hankook-manmool_myongham.jpg.jpg" alt="한국만물 대표 박성우 명함" class="business-card">
+        </div>
+    </div>
+</body>
+</html>
