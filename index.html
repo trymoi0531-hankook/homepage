@@ -7,45 +7,49 @@
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
-            text-align: center; /* 기본 중앙 정렬 유지 */
+            text-align: center;
             padding: 50px 20px;
             
-            /* [수정] 배경 이미지 설정 */
-            background-image: url('hankook-manmool_photo.jpg.jpg'); /* 첨부된 이미지 파일명으로 변경 */
+            /* 배경 이미지 설정 */
+            background-image: url('hankook-manmool_photo.jpg.jpg');
             background-repeat: no-repeat;
             background-position: center center;
             background-size: cover;
-            background-attachment: fixed; /* 스크롤 시 배경 고정 */
+            background-attachment: fixed;
             
             margin: 0;
         }
         .container {
             max-width: 650px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.9); /* [수정] 가독성을 위해 반투명 흰색 배경 적용 */
+            background: rgba(255, 255, 255, 0.9);
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             box-sizing: border-box;
-            position: relative; /* 로고 절대 배치를 위해 추가 */
+            position: relative;
         }
 
-        /* [수정] 상단 로고 스타일: 왼쪽 상단 배치 */
+        /* [수정] 상단 로고 링크 영역 스타일 */
+        .top-logo-link {
+            display: block;
+            position: absolute; /* 링크 전체를 절대 배치 */
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+        /* 로고 이미지 스타일 */
         .top-logo {
             display: block;
-            position: absolute; /* 절대 배치 */
-            top: 20px;         /* 위쪽 여백 */
-            left: 20px;        /* 왼쪽 여백 */
-            max-width: 70px;  /* 로고 크기 설정 (원하는 크기로 조절 가능) */
+            max-width: 100px;
             height: auto;
-            z-index: 10;       /* 다른 요소 위에 뜨도록 설정 */
         }
 
         .main-img {
             max-width: 100%;
             height: auto;
-            margin-top: 60px; /* 로고와 겹치지 않도록 위쪽 여백 추가 */
-            margin-bottom: 30px;
+            margin-top: 60px;
+            margin-bottom: 20px;
             border-radius: 4px;
         }
         h1 {
@@ -60,19 +64,18 @@
         .status {
             margin-top: 30px;
             font-weight: bold;
-            color: #e67e22; /* 오렌지색으로 강조 */
+            color: #e67e22;
         }
-        /* 명함 영역 스타일 (하단 우측 정렬) */
         .card-section {
             margin-top: 40px;
             padding-top: 25px;
             border-top: 1px solid #eee;
             display: flex;
-            justify-content: flex-end; /* 우측 정렬 */
+            justify-content: flex-end;
             align-items: center;
         }
         .business-card {
-            width: 280px; /* 표준 명함 비율 반영 크기 */
+            width: 280px;
             height: auto;
             border-radius: 6px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.15);
@@ -80,22 +83,23 @@
             transition: transform 0.2s ease;
         }
         .business-card:hover {
-            transform: scale(1.02); /* 마우스 호버 시 살짝 확대 효과 */
+            transform: scale(1.02);
         }
 
-        /* 모바일 화면 대응 반응형 */
         @media (max-width: 600px) {
             .container {
                 padding: 25px 20px;
-                padding-top: 70px; /* 모바일에서 로고 공간 확보 */
+                padding-top: 70px;
             }
-            .top-logo {
+            .top-logo-link {
                 top: 15px;
                 left: 15px;
-                max-width: 80px; /* 모바일에서는 로고 크기를 더 작게 */
+            }
+            .top-logo {
+                max-width: 80px;
             }
             .card-section {
-                justify-content: center; /* 모바일에서는 중앙 정렬 */
+                justify-content: center;
             }
             .business-card {
                 width: 100%;
@@ -106,13 +110,13 @@
 </head>
 <body>
     <div class="container">
-        <!-- 0. [추가] 최상단 왼쪽 로고 영역 -->
-        <!-- 파일명(src)은 실제 저장한 로고 이미지 파일명으로 변경해서 사용하세요 -->
-        <img src="logo.jpg" alt="한국만물 로고" class="top-logo">
+        <!-- 0. 최상단 왼쪽 로고 영역 (클릭 시 history.html로 이동) -->
+        <a href="history.html" class="top-logo-link">
+            <img src="logo.jpg" alt="한국만물 로고" class="top-logo">
+        </a>
 
         <!-- 1. 대표 로고 / 상단 이미지 -->
-        <!-- [수정] 스크린샷 82줄의 주석 내용을 삭제하고, 로고 아래로 위치를 잡았습니다. -->
-      <!--  <img src="hankook-manmool_photo.jpg" alt="" class="main-img"> -->
+       <!-- <img src="hankook-manmool_photo.jpg" alt="한국만물 대표 이미지" class="main-img"> -->
 
         <!-- 2. 회사 설명 -->
         <h1>한국만물</h1>
