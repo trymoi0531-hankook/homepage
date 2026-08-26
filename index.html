@@ -30,7 +30,7 @@
             position: relative;
         }
 
-        /* [수정] 상단 로고 링크 영역 스타일 */
+        /* 상단 로고 링크 영역 스타일 */
         .top-logo-link {
             display: block;
             position: absolute; /* 링크 전체를 절대 배치 */
@@ -66,13 +66,22 @@
             font-weight: bold;
             color: #e67e22;
         }
+        
+        /* [수정] 명함 및 사업자 정보 영역 스타일 */
         .card-section {
             margin-top: 40px;
             padding-top: 25px;
             border-top: 1px solid #eee;
             display: flex;
-            justify-content: flex-end;
-            align-items: center;
+            justify-content: space-between; /* 양쪽 끝으로 배치 */
+            align-items: flex-end; /* 하단 기준으로 정렬 */
+            text-align: left; /* 텍스트 왼쪽 정렬 */
+        }
+        .business-info {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.6;
+            word-break: keep-all;
         }
         .business-card {
             width: 280px;
@@ -98,8 +107,14 @@
             .top-logo {
                 max-width: 80px;
             }
+            /* [수정] 모바일에서는 세로로 배치되도록 변경 */
             .card-section {
-                justify-content: center;
+                flex-direction: column-reverse; /* 명함을 위로, 텍스트를 아래로 배치하려면 column-reverse 사용. 텍스트가 위면 column */
+                align-items: center;
+                gap: 20px;
+            }
+            .business-info {
+                text-align: center; /* 모바일에서는 가운데 정렬 */
             }
             .business-card {
                 width: 100%;
@@ -129,8 +144,14 @@
         <!-- 3. 안내 문구 -->
         <p class="status">한국만물에서 소싱한 제품들은 직접 유통을 하거나 쿠팡 등 온라인을 통해서 유통을 하고 있습니다. 특히 저온압착 참기름, 들기름은 선주문을 받은 후에 예천에 식품제조가공업 정식등록 제유소에서 직접 짜서 소비자에게 보내드리고 있습니다.<br>배송은 늦지만 그만큼 향기나는 제품을 받아보실 수 있도록 최선을 다하고 있습니다.</p>
 
-        <!-- 4. 하단 우측 명함 배치 영역 -->
+        <!-- 4. 하단 명함 및 사업자 정보 배치 영역 -->
         <div class="card-section">
+            <!-- 추가된 사업자 정보 영역 -->
+            <div class="business-info">
+                사업자등록번호: 541-68-00613<br>
+                통신판매신고번호: 제2026-경북예천-0060
+            </div>
+            
             <img src="hankook-manmool_myongham.jpg.jpg" alt="한국만물 대표 박성우 명함" class="business-card">
         </div>
     </div>
