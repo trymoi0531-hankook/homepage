@@ -1,159 +1,471 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>한국만물 - 공식 홈페이지</title>
-    <style>
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            text-align: center;
-            padding: 50px 20px;
-            
-            /* 배경 이미지 설정 */
-            background-image: url('hankook-manmool_photo.jpg.jpg');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-            background-attachment: fixed;
-            
-            margin: 0;
-        }
-        .container {
-            max-width: 650px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-            position: relative;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한국만물 | 예천·안동·영주가 키운 정직한 참기름·들기름·벌꿀</title>
+<meta name="description" content="한국만물은 경북 예천, 안동, 영주의 청정 산지에서 저온압착으로 짜낸 참기름·들기름과 백두대간 자락의 천연 아카시아벌꿀을 정직하게 전하는 프리미엄 로컬 유통 브랜드입니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Gowun+Dodum&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F6F1E3;
+    --paper:#FFFDF8;
+    --ink:#23321F;
+    --ink-soft:#4E5A45;
+    --gold:#C69A3C;
+    --gold-deep:#A57A22;
+    --clay:#7A4B2A;
+    --line: rgba(35,50,31,.14);
+    --shadow: 0 10px 30px rgba(35,50,31,.10);
+    --radius: 6px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Gowun Dodum', sans-serif;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Song Myung', serif;
+    color:var(--ink);
+    margin:0 0 .5em;
+    line-height:1.3;
+  }
+  p{line-height:1.8; color:var(--ink-soft); margin:0 0 1em;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:9px; height:11px;
+    background:var(--gold);
+    clip-path:url(#dropClip);
+    display:inline-block;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+  section{padding:96px 0;}
 
-        /* 상단 로고 링크 영역 스타일 */
-        .top-logo-link {
-            display: block;
-            position: absolute; /* 링크 전체를 절대 배치 */
-            top: 20px;
-            left: 20px;
-            z-index: 10;
-        }
-        /* 로고 이미지 스타일 */
-        .top-logo {
-            display: block;
-            max-width: 60px;
-            height: auto;
-        }
+  /* ---------- Header ---------- */
+  header.topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,241,227,.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:1080px; margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+  }
+  .brand-mark{display:flex; align-items:center; gap:10px;}
+  .brand-mark img{width:38px; height:38px; border-radius:50%; object-fit:cover;}
+  .brand-mark span{font-family:'Song Myung', serif; font-size:1.15rem;}
+  nav.main-nav{display:flex; gap:26px; font-size:.92rem;}
+  nav.main-nav a{color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px; transition:.2s;}
+  nav.main-nav a:hover{color:var(--gold-deep); border-color:var(--gold);}
+  .btn-primary, .btn-ghost{
+    display:inline-block;
+    padding:11px 22px;
+    border-radius:999px;
+    font-size:.9rem;
+    font-weight:600;
+    transition:.2s;
+  }
+  .btn-primary{background:var(--ink); color:var(--cream);}
+  .btn-primary:hover{background:var(--gold-deep);}
+  .btn-ghost{border:1px solid var(--ink); color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink); color:var(--cream);}
+  .topbar-cta{display:flex; align-items:center;}
 
-        .main-img {
-            max-width: 100%;
-            height: auto;
-            margin-top: 60px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-        p {
-            color: #666;
-            line-height: 1.7;
-            word-break: keep-all;
-        }
-        .status {
-            margin-top: 30px;
-            font-weight: bold;
-            color: #e67e22;
-        }
-        
-        /* [수정] 명함 및 사업자 정보 영역 스타일 */
-        .card-section {
-            margin-top: 40px;
-            padding-top: 25px;
-            border-top: 1px solid #eee;
-            display: flex;
-            justify-content: space-between; /* 양쪽 끝으로 배치 */
-            align-items: flex-end; /* 하단 기준으로 정렬 */
-            text-align: left; /* 텍스트 왼쪽 정렬 */
-        }
-        .business-info {
-            font-size: 0.85rem;
-            color: #555;
-            line-height: 1.6;
-            word-break: keep-all;
-        }
-        .business-card {
-            width: 280px;
-            height: auto;
-            border-radius: 6px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-            border: 1px solid #e0e0e0;
-            transition: transform 0.2s ease;
-        }
-        .business-card:hover {
-            transform: scale(1.02);
-        }
+  /* ---------- Hero ---------- */
+  .hero .wrap{
+    display:grid; grid-template-columns:1.05fr .95fr;
+    gap:56px; align-items:center; padding-top:56px; padding-bottom:32px;
+  }
+  .hero h1{font-size:2.5rem;}
+  .hero h1 .accent{color:var(--gold-deep);}
+  .hero-cta{display:flex; gap:14px; margin-top:28px; flex-wrap:wrap;}
+  .drop-frame{
+    position:relative;
+    aspect-ratio:1/1.12;
+    clip-path:url(#dropClip);
+    background:var(--gold);
+    box-shadow:var(--shadow);
+  }
+  .drop-frame img{width:100%; height:100%; object-fit:cover;}
+  .drop-frame.small{aspect-ratio:1/1.1;}
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 25px 20px;
-                padding-top: 70px;
-            }
-            .top-logo-link {
-                top: 15px;
-                left: 15px;
-            }
-            .top-logo {
-                max-width: 80px;
-            }
-            /* [수정] 모바일에서는 세로로 배치되도록 변경 */
-            .card-section {
-                flex-direction: column-reverse; /* 명함을 위로, 텍스트를 아래로 배치하려면 column-reverse 사용. 텍스트가 위면 column */
-                align-items: center;
-                gap: 20px;
-            }
-            .business-info {
-                text-align: center; /* 모바일에서는 가운데 정렬 */
-            }
-            .business-card {
-                width: 100%;
-                max-width: 280px;
-            }
-        }
-    </style>
+  /* ---------- Story ---------- */
+  .story .wrap{
+    display:grid; grid-template-columns:.85fr 1.15fr;
+    gap:56px; align-items:center;
+  }
+  .story .drop-frame{max-width:340px;}
+  blockquote{
+    border-left:3px solid var(--gold);
+    margin:26px 0 0;
+    padding-left:20px;
+    font-family:'Song Myung', serif;
+    font-size:1.15rem;
+    color:var(--ink);
+  }
+
+  /* ---------- Origin belt ---------- */
+  .origin-belt{background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .origin-head{max-width:640px; margin:0 auto 56px; text-align:center;}
+  .origin-head h2{font-size:1.9rem;}
+  .ridge-line{
+    display:flex; align-items:center; justify-content:center;
+    gap:0; margin-bottom:46px;
+  }
+  .ridge-line .peak{flex:1; height:1px; background:repeating-linear-gradient(90deg, var(--gold) 0 6px, transparent 6px 12px);}
+  .ridge-line svg{flex-shrink:0; width:46px; height:30px;}
+  .origin-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:32px;
+  }
+  .origin-card{text-align:center;}
+  .origin-card .drop-frame{width:150px; height:168px; margin:0 auto 20px;}
+  .origin-card h3{font-size:1.15rem; margin-bottom:6px;}
+  .origin-card .tag{
+    font-family:'Space Mono', monospace; font-size:.72rem;
+    color:var(--gold-deep); letter-spacing:.06em; display:block; margin-bottom:10px;
+  }
+
+  /* ---------- Process ---------- */
+  .process-list{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+    border-top:1px solid var(--line); margin-top:50px;
+  }
+  .process-step{
+    padding:32px 26px 0; position:relative;
+    border-right:1px solid var(--line);
+  }
+  .process-step:last-child{border-right:none;}
+  .process-step .num{
+    font-family:'Space Mono', monospace; color:var(--gold-deep);
+    font-size:.85rem; display:block; margin-bottom:10px;
+  }
+  .process-step h3{font-size:1.05rem;}
+
+  /* ---------- Products ---------- */
+  .products{background:var(--cream);}
+  .product-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:50px;
+  }
+  .product-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column;
+  }
+  .product-card .photo{aspect-ratio:4/3; overflow:hidden;}
+  .product-card .photo img{width:100%; height:100%; object-fit:cover;}
+  .product-card .body{padding:22px 24px 26px; display:flex; flex-direction:column; flex:1;}
+  .product-card h3{font-size:1.15rem; margin-bottom:8px;}
+  .product-card p{font-size:.92rem; flex:1;}
+  .product-card .buy-link{
+    margin-top:14px; font-size:.85rem; font-weight:600; color:var(--gold-deep);
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .status-box{
+    margin-top:52px; background:var(--paper); border:1px solid var(--line);
+    border-radius:var(--radius); padding:26px 28px; display:flex; gap:18px; align-items:flex-start;
+  }
+  .status-box svg{flex-shrink:0; margin-top:3px;}
+  .status-box p{margin:0; font-size:.92rem;}
+
+  /* ---------- Trust ---------- */
+  .trust{background:var(--paper); border-top:1px solid var(--line);}
+  .trust .wrap{
+    display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;
+  }
+  .stamp-card{
+    border:1px solid var(--line); border-radius:var(--radius); padding:30px 32px;
+    background:var(--cream); position:relative;
+  }
+  .stamp-card .seal{
+    position:absolute; top:24px; right:26px; width:66px; height:66px;
+  }
+  .stamp-card dl{margin:0; font-family:'Space Mono', monospace; font-size:.86rem; color:var(--ink);}
+  .stamp-card dt{color:var(--ink-soft); margin-top:14px;}
+  .stamp-card dt:first-child{margin-top:0;}
+  .stamp-card dd{margin:2px 0 0; font-weight:700;}
+  .biz-card-img{
+    border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid var(--line);
+    max-width:320px;
+  }
+  .founder-line{margin-top:18px; font-size:.9rem; color:var(--ink-soft);}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink); color:var(--cream); padding:60px 0 30px;}
+  footer .wrap{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px;}
+  footer h4{font-family:'Space Mono', monospace; font-size:.78rem; letter-spacing:.08em; color:var(--gold); text-transform:uppercase; margin:0 0 14px;}
+  footer p, footer a{color:rgba(246,241,227,.75); font-size:.9rem;}
+  footer .foot-brand{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  footer .foot-brand img{width:34px; height:34px; border-radius:50%;}
+  footer .foot-brand span{font-family:'Song Myung', serif; color:var(--cream); font-size:1.1rem;}
+  .foot-bottom{
+    margin-top:46px; padding-top:22px; border-top:1px solid rgba(246,241,227,.15);
+    font-size:.78rem; color:rgba(246,241,227,.55); text-align:center;
+  }
+
+  @media (max-width:860px){
+    .hero .wrap, .story .wrap, .trust .wrap{grid-template-columns:1fr;}
+    .story .wrap{direction:ltr;}
+    .story .drop-frame{margin:0 auto; max-width:260px;}
+    .origin-grid, .process-list{grid-template-columns:1fr;}
+    .process-step{border-right:none; border-bottom:1px solid var(--line); padding-bottom:28px;}
+    footer .wrap{grid-template-columns:1fr; gap:28px;}
+  }
+  @media (max-width:600px){
+    section{padding:64px 0;}
+    .hero h1{font-size:2rem;}
+    nav.main-nav{display:none;}
+    .product-grid{grid-template-columns:1fr;}
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- 0. 최상단 왼쪽 로고 영역 (클릭 시 history.html로 이동) -->
-        <a href="history.html" class="top-logo-link">
-            <img src="logo.jpg" alt="한국만물 로고" class="top-logo">
-        </a>
 
-        <!-- 1. 대표 로고 / 상단 이미지 -->
-       <!-- <img src="hankook-manmool_photo.jpg" alt="한국만물 대표 이미지" class="main-img"> -->
+<!-- 재사용되는 물방울 클립패스 정의 (숨김 SVG) -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <clipPath id="dropClip" clipPathUnits="objectBoundingBox">
+      <path d="M0.5,0 C0.74,0.27 1,0.55 1,0.73 C1,0.9 0.78,1 0.5,1 C0.22,1 0,0.9 0,0.73 C0,0.55 0.26,0.27 0.5,0 Z"/>
+    </clipPath>
+  </defs>
+</svg>
 
-        <!-- 2. 회사 설명 -->
-        <h1>한국만물</h1>
-        <p>
-            한국만물은 경북 예천, 안동, 영주의 맑고 청정한 자연이 키워낸 고품질 우수 농축산물을 발굴하여 고객의 식탁으로 정직하게 전하는 프리미엄 로컬 유통 브랜드입니다.<br><br>
-            저온압착으로 고소함과 영양을 그대로 담아낸 100% 국산 들기름·참기름부터, 백두대간의 자연을 담은 천연 아카시아벌꿀까지 엄격한 위생 검증과 안전한 품질 관리를 거친 바른 먹거리만을 고집합니다.<br><br>
-            산지 생산자와의 상생 직거래를 통해 신선함은 높이고 유통 거품은 줄였습니다. 자연의 순수함과 전통의 깊은 맛을 이어가는 한국만물에서 믿을 수 있는 우리 농산물의 가치를 경험해 보세요.
-        </p>
-
-        <!-- 3. 안내 문구 -->
-        <p class="status">한국만물에서 소싱한 제품들은 직접 유통을 하거나 쿠팡 등 온라인을 통해서 유통을 하고 있습니다. 특히 저온압착 참기름, 들기름은 선주문을 받은 후에 예천에 식품제조가공업 정식등록 제유소에서 직접 짜서 소비자에게 보내드리고 있습니다.<br>배송은 늦지만 그만큼 향기나는 제품을 받아보실 수 있도록 최선을 다하고 있습니다.</p>
-
-        <!-- 4. 하단 명함 및 사업자 정보 배치 영역 -->
-        <div class="card-section">
-            <!-- 추가된 사업자 정보 영역 -->
-            <div class="business-info">
-                사업자등록번호: 541-68-00613<br>
-                통신판매신고번호: 제2026-경북예천-0060
-            </div>
-            
-            <img src="hankook-manmool_myongham.jpg.jpg" alt="한국만물 대표 박성우 명함" class="business-card">
-        </div>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="history.html" class="brand-mark">
+      <img src="logo.jpg" alt="한국만물 로고">
+      <span>한국만물</span>
+    </a>
+    <nav class="main-nav">
+      <a href="#story">브랜드 이야기</a>
+      <a href="#origin">산지 이야기</a>
+      <a href="#process">저온압착 공정</a>
+      <a href="#products">제품</a>
+      <a href="#trust">사업자 정보</a>
+    </nav>
+    <div class="topbar-cta">
+      <!-- TODO: 실제 쿠팡/스토어 링크로 교체하세요 -->
+      <a href="#products" class="btn-primary">구매하러 가기</a>
     </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow">경북 예천 · 안동 · 영주 | 프리미엄 로컬 유통</span>
+      <h1>정직하게 짜낸<br><span class="accent">한 방울</span>의 진심</h1>
+      <p>한국만물은 백두대간이 품은 청정 산지의 우수 농축산물을 발굴해, 산지 생산자와의 상생 직거래로 유통 거품은 줄이고 신선함은 높여 고객의 식탁까지 정직하게 전합니다.</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn-primary">제품 보러가기</a>
+        <a href="#story" class="btn-ghost">브랜드 이야기 읽기</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- photo-1.jpg : 저온압착 참기름/들기름이 병에 담기는 대표 이미지 -->
+      <div class="drop-frame">
+        <img src="https://images.unsplash.com/photo-1675419940490-051377d6bc6c?fm=jpg&q=60&w=1200&auto=format&fit=crop" alt="저온압착으로 짜낸 참기름이 유리병에 담기는 모습" data-final-src="photo-1.jpg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="story" class="story">
+  <div class="wrap">
+    <div class="story-visual">
+      <!-- photo-2.jpg : 예천 들판 또는 생산자 작업 모습 -->
+      <div class="drop-frame small">
+        <img src="https://images.unsplash.com/photo-1648261775447-774543c73dc7?fm=jpg&q=60&w=1200&auto=format&fit=crop" alt="예천 산지에서 원료를 손질하는 생산자의 모습" data-final-src="photo-2.jpg">
+      </div>
+    </div>
+    <div class="story-text">
+      <span class="eyebrow">Our Story</span>
+      <h2>산지의 정직함을 그대로, 한국만물</h2>
+      <p>경북 예천, 안동, 영주의 맑고 청정한 자연이 키워낸 고품질 농축산물을 발굴하여 고객의 식탁으로 정직하게 전하는 것, 그것이 한국만물의 시작이자 지금까지 지켜온 원칙입니다.</p>
+      <p>저온압착으로 고소함과 영양을 그대로 담아낸 100% 국산 들기름·참기름부터, 백두대간의 자연을 담은 천연 아카시아벌꿀까지 — 엄격한 위생 검증과 안전한 품질 관리를 거친 바른 먹거리만을 고집합니다.</p>
+      <blockquote>산지 생산자와의 상생 직거래를 통해 신선함은 높이고 유통 거품은 줄였습니다.</blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="origin" class="origin-belt">
+  <div class="wrap">
+    <div class="origin-head">
+      <span class="eyebrow">Where It Comes From</span>
+      <h2>백두대간이 키운 세 산지</h2>
+      <p>예천의 제유소, 안동의 원료밭, 영주 소백산 자락의 양봉농가 — 세 지역이 이어져 한국만물의 한 병이 완성됩니다.</p>
+    </div>
+
+    <div class="ridge-line">
+      <div class="peak"></div>
+      <svg viewBox="0 0 46 30" fill="none"><path d="M2 26 L14 8 L23 18 L32 4 L44 26" stroke="#C69A3C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="peak"></div>
+    </div>
+
+    <div class="origin-grid">
+      <div class="origin-card">
+        <!-- photo-3.jpg : 예천 제유소 / 참깨,들깨 원료 -->
+        <div class="drop-frame"><img src="https://images.unsplash.com/photo-1705026042359-2d5b761845f3?fm=jpg&q=60&w=900&auto=format&fit=crop" alt="예천의 참기름·들기름 제유소 전경" data-final-src="photo-3.jpg"></div>
+        <span class="tag">예천 · YECHEON</span>
+        <h3>정식등록 제유소</h3>
+        <p>선주문을 받은 뒤 예천의 식품제조가공업 정식등록 제유소에서 직접 저온압착으로 짜냅니다.</p>
+      </div>
+      <div class="origin-card">
+        <!-- photo-4.jpg : 안동 원료 재배지 -->
+        <div class="drop-frame"><img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?fm=jpg&q=60&w=900&auto=format&fit=crop" alt="안동의 참깨 들깨 재배 농가" data-final-src="photo-4.jpg"></div>
+        <span class="tag">안동 · ANDONG</span>
+        <h3>원료 재배 농가</h3>
+        <p>안동의 청정한 밭에서 자란 통참깨·통들깨를 엄선해 압착 전까지 신선하게 보관합니다.</p>
+      </div>
+      <div class="origin-card">
+        <!-- photo-5.jpg : 영주 소백산 양봉농가 -->
+        <div class="drop-frame"><img src="https://images.unsplash.com/photo-1642067958024-1a2d9f836920?fm=jpg&q=60&w=900&auto=format&fit=crop" alt="영주 소백산 자락의 아카시아 양봉농가" data-final-src="photo-5.jpg"></div>
+        <span class="tag">영주 · YEONGJU</span>
+        <h3>소백산 양봉농가</h3>
+        <p>백두대간 소백산 자락에서 채밀한 천연 아카시아벌꿀을 가공 없이 그대로 전합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <span class="eyebrow">How We Make It</span>
+    <h2>선주문 후 짜는 정직한 저온압착 공정</h2>
+    <p style="max-width:600px;">배송은 조금 늦더라도, 그만큼 향이 살아있는 제품을 받아보실 수 있도록 저희는 이 세 단계를 지킵니다.</p>
+    <div class="process-list">
+      <div class="process-step">
+        <span class="num">01</span>
+        <h3>원료 선별</h3>
+        <p>안동에서 올라온 통참깨·통들깨 중 알이 굵고 고른 것만 손으로 골라냅니다.</p>
+      </div>
+      <div class="process-step">
+        <span class="num">02</span>
+        <h3>예천 저온압착</h3>
+        <p>정식등록 제유소에서 열을 최소화한 저온압착 방식으로 고소함과 영양을 그대로 살립니다.</p>
+      </div>
+      <div class="process-step">
+        <span class="num">03</span>
+        <h3>당일 병입 · 발송</h3>
+        <p>착유 당일 병입해 향이 날아가기 전, 가장 신선한 상태로 고객께 보내드립니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="products" class="products">
+  <div class="wrap">
+    <span class="eyebrow">Products</span>
+    <h2>한국만물의 바른 먹거리</h2>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <!-- photo-6.jpg : 참기름 제품컷 -->
+        <div class="photo"><img src="https://images.unsplash.com/photo-1705026042359-2d5b761845f3?fm=jpg&q=60&w=900&auto=format&fit=crop" alt="한국만물 100% 국산 저온압착 참기름" data-final-src="photo-6.jpg"></div>
+        <div class="body">
+          <h3>저온압착 참기름</h3>
+          <p>예천산 통참깨 100%를 저온압착해 고소한 향과 영양을 그대로 담았습니다.</p>
+          <span class="buy-link">쿠팡에서 만나보기 → (제품 준비 중) </span>
+        </div>
+      </div>
+      <div class="product-card">
+        <!-- photo-7.jpg : 들기름 제품컷 -->
+        <div class="photo"><img src="https://images.unsplash.com/photo-1648261775447-774543c73dc7?fm=jpg&q=60&w=900&auto=format&fit=crop" alt="한국만물 100% 국산 저온압착 들기름" data-final-src="photo-7.jpg"></div>
+        <div class="body">
+          <h3>저온압착 들기름</h3>
+          <p>선주문 후 예천 제유소에서 직접 짜내는 100% 국산 들기름입니다.</p>
+          <span class="buy-link">쿠팡에서 만나보기 → (제품 준비 중)</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <!-- photo-8.jpg : 벌꿀 제품컷 -->
+        <div class="photo"><img src="https://images.unsplash.com/photo-1675419940490-051377d6bc6c?fm=jpg&q=60&w=900&auto=format&fit=crop" alt="영주 소백산 천연 아카시아벌꿀" data-final-src="photo-8.jpg"></div>
+        <div class="body">
+          <h3>천연 아카시아벌꿀</h3>
+          <p>영주 소백산 자락에서 채밀한 백두대간의 순수한 자연 그대로의 벌꿀입니다.</p>
+          <span class="buy-link">쿠팡에서 만나보기 → (제품 준비 중)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="status-box">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#C69A3C" stroke-width="1.6"/><path d="M12 8v5" stroke="#C69A3C" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16" r="1" fill="#C69A3C"/></svg>
+      <p>한국만물에서 소싱한 제품들은 자사 직접 유통 또는 쿠팡 등 온라인 채널을 통해 만나보실 수 있습니다. 특히 저온압착 참기름·들기름은 선주문을 받은 후 예천의 식품제조가공업 정식등록 제유소에서 직접 짜서 보내드리기 때문에 배송은 다소 늦을 수 있습니다. 그만큼 향이 살아있는 제품을 받아보실 수 있도록 최선을 다하겠습니다.</p>
+    </div>
+  </div>
+</section>
+
+<section id="trust" class="trust">
+  <div class="wrap">
+    <div class="stamp-card">
+      <svg class="seal" viewBox="0 0 66 66" fill="none">
+        <circle cx="33" cy="33" r="30" stroke="#7A4B2A" stroke-width="2"/>
+        <circle cx="33" cy="33" r="24" stroke="#7A4B2A" stroke-width="1"/>
+        <text x="33" y="30" text-anchor="middle" font-family="Song Myung, serif" font-size="10" fill="#7A4B2A">정직</text>
+        <text x="33" y="44" text-anchor="middle" font-family="Song Myung, serif" font-size="10" fill="#7A4B2A">유통</text>
+      </svg>
+      <span class="eyebrow">Business Info</span>
+      <h2 style="font-size:1.4rem;">사업자 정보</h2>
+      <dl>
+        <dt>상호</dt><dd>한국만물</dd>
+        <dt>대표자</dt><dd>박성우</dd>
+        <dt>사업자등록번호</dt><dd>541-68-00613</dd>
+        <dt>통신판매신고번호</dt><dd>제2026-경북예천-0060</dd>
+      </dl>
+      <p class="founder-line">대표 박성우가 산지를 직접 발로 뛰며 확인한 생산자들과만 거래합니다.</p>
+    </div>
+    <div class="trust-visual" style="text-align:center;">
+      <img class="biz-card-img" src="hankook-manmool_myongham.jpg.jpg" alt="한국만물">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="foot-brand">
+        <img src="logo.jpg" alt="한국만물 로고">
+        <span>한국만물</span>
+      </div>
+      <p>경북 예천·안동·영주의 청정 자연이 키운 고품질 농축산물을 정직하게 전하는 프리미엄 로컬 유통 브랜드입니다.</p>
+    </div>
+    <div>
+      <h4>Menu</h4>
+      <p><a href="#story">브랜드 이야기</a></p>
+      <p><a href="#origin">산지 이야기</a></p>
+      <p><a href="#products">제품 보기</a></p>
+      <p><a href="#trust">사업자 정보</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <!-- TODO: 실제 연락처/카카오채널/쿠팡 스토어 링크로 교체하세요 -->
+      <p>제휴문의: seoul.korea@kakao.com</p>
+      <p>사업자등록번호 541-68-00613</p>
+      <p>통신판매신고 제2026-경북예천-0060</p>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 한국만물. All rights reserved.</div>
+</footer>
+
 </body>
 </html>
