@@ -196,7 +196,16 @@
   .status-box p{margin:0; font-size:.92rem;}
 
   /* ---------- Trust ---------- */
-  .trust{background:var(--paper); border-top:1px solid var(--line);}
+  .trust{
+    position:relative;
+    border-top:1px solid var(--line);
+    background-image:
+      linear-gradient(rgba(255,253,248,.88), rgba(255,253,248,.88)),
+      url('hankook-manmool_photo.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
   .trust .wrap{
     display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;
   }
