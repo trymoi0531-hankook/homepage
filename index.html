@@ -42,21 +42,23 @@
   img{max-width:100%; display:block;}
   .eyebrow{
     font-family:'Space Mono', monospace;
-    font-size:.72rem;
-    letter-spacing:.14em;
+    font-size:.98rem;
+    font-weight:700;
+    letter-spacing:.08em;
     text-transform:uppercase;
-    color:var(--gold-deep);
+    color:var(--clay);
     display:inline-flex;
     align-items:center;
-    gap:8px;
-    margin-bottom:14px;
+    gap:9px;
+    margin-bottom:16px;
   }
   .eyebrow::before{
     content:"";
-    width:9px; height:11px;
+    width:11px; height:13px;
     background:var(--gold);
     clip-path:url(#dropClip);
     display:inline-block;
+    flex-shrink:0;
   }
   .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
   section{padding:96px 0;}
@@ -73,7 +75,12 @@
     display:flex; align-items:center; justify-content:space-between; gap:24px;
   }
   .brand-mark{display:flex; align-items:center; gap:14px;}
-  .brand-mark img{width:76px; height:76px; border-radius:10px; object-fit:contain; background:var(--paper);}
+  .brand-mark img{
+    width:76px; height:76px; border-radius:14px; object-fit:contain;
+    background:radial-gradient(circle at 50% 40%, #FFFFFF 0%, #F3ECDA 100%);
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 2px 4px rgba(35,50,31,.06) inset, 0 6px 14px rgba(35,50,31,.16);
+    padding:3px;
+  }
   .brand-mark span{font-family:'Song Myung', serif; font-size:1.7rem; font-weight:700; color:var(--ink); letter-spacing:-.01em;}
   nav.main-nav{display:flex; gap:30px; font-size:1.08rem;}
   nav.main-nav a{color:var(--ink); font-weight:700; border-bottom:2px solid transparent; padding-bottom:3px; transition:.2s;}
@@ -108,6 +115,7 @@
     box-shadow:var(--shadow);
   }
   .drop-frame img{width:100%; height:100%; object-fit:cover;}
+  .touch-up{filter:saturate(1.18) contrast(1.06) brightness(1.04) hue-rotate(-2deg);}
   .drop-frame.small{aspect-ratio:1/1.1;}
 
   /* ---------- Story ---------- */
@@ -215,7 +223,12 @@
   footer h4{font-family:'Space Mono', monospace; font-size:.78rem; letter-spacing:.08em; color:var(--gold); text-transform:uppercase; margin:0 0 14px;}
   footer p, footer a{color:rgba(246,241,227,.75); font-size:.9rem;}
   footer .foot-brand{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
-  footer .foot-brand img{width:56px; height:56px; border-radius:10px; object-fit:contain; background:var(--paper);}
+  footer .foot-brand img{
+    width:56px; height:56px; border-radius:12px; object-fit:contain;
+    background:radial-gradient(circle at 50% 40%, #FFFFFF 0%, #F3ECDA 100%);
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 6px 14px rgba(0,0,0,.25);
+    padding:3px;
+  }
   footer .foot-brand span{font-family:'Song Myung', serif; color:var(--cream); font-size:1.35rem; font-weight:700;}
   .foot-bottom{
     margin-top:46px; padding-top:22px; border-top:1px solid rgba(246,241,227,.15);
@@ -294,7 +307,7 @@
     <div class="story-visual">
       <!-- photo-2.jpg : 예천 들판 또는 생산자 작업 모습 -->
       <div class="drop-frame small">
-        <img src="https://images.unsplash.com/photo-1648261775447-774543c73dc7?fm=jpg&q=60&w=1200&auto=format&fit=crop" alt="예천 산지에서 원료를 손질하는 생산자의 모습" data-final-src="photo-2.jpg">
+        <img class="touch-up" src="https://images.unsplash.com/photo-1748313715254-d7ba17d7dafa?fm=jpg&q=60&w=1200&auto=format&fit=crop" alt="싱그럽게 자란 초록 들깨 잎" data-final-src="photo-2.jpg">
       </div>
     </div>
     <div class="story-text">
@@ -389,7 +402,7 @@
       </div>
       <div class="product-card">
         <!-- photo-7.jpg : 들기름 제품컷 -->
-        <div class="photo"><img src="https://images.unsplash.com/photo-1648261775447-774543c73dc7?fm=jpg&q=60&w=900&auto=format&fit=crop" alt="한국만물 100% 국산 저온압착 들기름" data-final-src="photo-7.jpg"></div>
+        <div class="photo"><img class="touch-up" src="https://images.unsplash.com/photo-1748313715254-d7ba17d7dafa?fm=jpg&q=60&w=900&auto=format&fit=crop" alt="한국만물 100% 국산 저온압착 들기름" data-final-src="field-1.jpg"></div>
         <div class="body">
           <h3>저온압착 들기름</h3>
           <p>선주문 후 예천 제유소에서 직접 짜내는 100% 국산 들기름입니다.</p>
