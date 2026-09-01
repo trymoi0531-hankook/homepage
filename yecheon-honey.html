@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>예천 벌꿀 — 한국만물</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --comb:#f7e9c4;
+    --comb-deep:#efd89a;
+    --amber:#b8720e;
+    --amber-deep:#8f5809;
+    --plum:#6b2737;
+    --ink:#2b2013;
+    --stone:#8a7c5e;
+    --maxw:720px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--comb);
+    color:var(--ink);
+    font-family:'Noto Sans KR',sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:'Gowun Batang',serif; margin:0; }
+  .wrap{max-width:var(--maxw);margin:0 auto;}
+  section{padding:60px 28px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:var(--comb-deep);
+    padding:64px 28px 52px;
+    overflow:hidden;
+  }
+  .hexbg{
+    position:absolute; inset:0;
+    opacity:0.35;
+    z-index:0;
+  }
+  .hero .wrap{position:relative;z-index:1;}
+  .hero-tag{display:block;font-size:14px;color:var(--amber-deep);margin-bottom:16px;font-weight:500;}
+  .hero h1{font-size:32px;line-height:1.45;color:var(--ink);}
+  .hero p.sub{margin-top:18px;font-size:15.5px;color:#5c4f34;max-width:32ch;}
+  .cta-btn{
+    display:inline-block;
+    background:var(--amber);
+    color:#fff8e8;
+    font-weight:700;
+    font-size:16px;
+    padding:16px 32px;
+    border-radius:2px;
+    text-decoration:none;
+    margin-top:26px;
+  }
+
+  /* ---------- WHY ---------- */
+  .why{background:var(--comb);}
+  .why p.big{
+    font-family:'Gowun Batang',serif;
+    font-size:21px;
+    line-height:1.7;
+    color:var(--plum);
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--ink); color:var(--comb);}
+  .process h2{color:#fbeecb;font-size:25px;margin-bottom:40px;}
+  .step{display:grid;grid-template-columns:40px 1fr;gap:16px;padding-bottom:32px;border-bottom:1px solid #4a3d29;margin-bottom:32px;}
+  .step:last-child{border:none;margin:0;padding:0;}
+  .hexicon{width:40px;height:40px;}
+  .step h3{font-size:17px;color:#fbeecb;margin-bottom:6px;font-family:'Noto Sans KR',sans-serif;font-weight:700;}
+  .step p{font-size:14px;color:#cbb98c;margin:0;}
+
+  /* ---------- COMPARE ---------- */
+  .compare{background:var(--comb);}
+  .compare h2{font-size:25px;margin-bottom:28px;color:var(--ink);}
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th,td{padding:15px 12px;text-align:left;border-bottom:1px solid #e2cf9c;vertical-align:top;}
+  thead th{font-family:'Gowun Batang',serif;font-size:15.5px;}
+  thead th:last-child{color:var(--amber-deep);}
+  tbody td:last-child{color:var(--plum);font-weight:500;}
+
+  /* ---------- USAGE ---------- */
+  .usage{background:var(--comb-deep);}
+  .usage h2{font-size:25px;margin-bottom:30px;color:var(--ink);}
+  .usage-grid{display:grid;grid-template-columns:1fr;gap:16px;}
+  .usage-card{background:#fffaef;border-radius:2px;padding:22px;border:1px solid #e6d3a0;}
+  .usage-card h3{font-family:'Noto Sans KR',sans-serif;font-size:15.5px;font-weight:700;color:var(--amber-deep);margin-bottom:6px;}
+  .usage-card p{font-size:13.5px;color:#6b5c3e;margin:0;}
+
+  /* ---------- CERT ---------- */
+  .cert{background:var(--plum);color:#f4e3e6;}
+  .cert h2{color:#f4e3e6;font-size:23px;margin-bottom:22px;}
+  .cert-list{list-style:none;margin:0;padding:0;display:grid;gap:13px;}
+  .cert-list li{font-size:14px;border-left:2px solid #e0a9b3;padding-left:14px;color:#f1d9dd;}
+  .cert-note{margin-top:22px;font-size:12.5px;color:#dcb2ba;}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--comb);}
+  .faq h2{font-size:25px;margin-bottom:22px;color:var(--ink);}
+  .qa{border-bottom:1px solid #e2cf9c;padding:18px 0;}
+  .qa:first-of-type{border-top:1px solid #e2cf9c;}
+  .qa .q{font-weight:700;font-size:15px;margin-bottom:6px;}
+  .qa .a{font-size:14px;color:#5c4f34;margin:0;}
+
+  /* ---------- FINAL ---------- */
+  .final{background:var(--amber);text-align:center;padding:50px 28px;}
+  .final h2{font-size:22px;color:#fff8e8;margin-bottom:10px;}
+  .final p{color:#fbe6bd;font-size:14px;margin-bottom:22px;}
+  .final .cta-btn{background:var(--ink);color:#f7e9c4;}
+
+  @media(min-width:600px){
+    .hero h1{font-size:40px;}
+    .usage-grid{grid-template-columns:1fr 1fr 1fr;}
+  }
+/* ---------- SHOP LINKS ---------- */
+  .shop-links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:22px;
+    align-items:center;
+  }
+  .shop-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    width:100%;
+    max-width:320px;
+    padding:14px 20px;
+    border-radius:4px;
+    font-weight:700;
+    font-size:15px;
+    text-decoration:none;
+    color:#fff;
+  }
+  .shop-btn svg{flex-shrink:0;}
+  .shop-btn.coupang{background:#0a56c9;}
+  .shop-btn.naver{background:#03c75a;}
+  @media(min-width:420px){
+    .shop-links{flex-direction:row;justify-content:center;}
+    .shop-btn{width:auto;}
+  }
+</style>
+
+</head>
+<body>
+
+  <section class="hero">
+    <svg class="hexbg" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#c99a3e" stroke-width="1.2">
+        <polygon points="40,10 70,27 70,60 40,77 10,60 10,27"/>
+        <polygon points="100,10 130,27 130,60 100,77 70,60 70,27"/>
+        <polygon points="160,10 190,27 190,60 160,77 130,60 130,27"/>
+        <polygon points="220,10 250,27 250,60 220,77 190,60 190,27"/>
+        <polygon points="280,10 310,27 310,60 280,77 250,60 250,27"/>
+        <polygon points="340,10 370,27 370,60 340,77 310,60 310,27"/>
+        <polygon points="70,60 100,77 100,110 70,127 40,110 40,77"/>
+        <polygon points="130,60 160,77 160,110 130,127 100,110 100,77"/>
+        <polygon points="190,60 220,77 220,110 190,127 160,110 160,77"/>
+        <polygon points="250,60 280,77 280,110 250,127 220,110 220,77"/>
+        <polygon points="310,60 340,77 340,110 310,127 280,110 280,77"/>
+      </g>
+    </svg>
+    <div class="wrap">
+      <span class="hero-tag">경북 예천 · 벌꿀</span>
+      <h1>벌이 다 채울 때까지,<br>기다립니다</h1>
+      <p class="sub">일찍 채밀하지 않고, 벌이 스스로 뚜껑을 덮을 때까지 기다린 완숙꿀입니다.</p>
+      <a href="javascript:void(0);" onclick="document.getElementById('final-order').scrollIntoView({behavior:'smooth'});" class="cta-btn">지금 주문하기</a>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="wrap">
+      <p class="big">꿀은 벌이 수분을 날려 농축해야 완성됩니다.<br><br>
+      서두르면 수분이 많아 발효되기 쉽고, 기다리면 벌집이 스스로 밀랍 뚜껑을 덮습니다.<br>저희는 그 뚜껑이 덮인 후에만 채밀합니다.</p>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="wrap">
+      <h2>꿀이 완성되기까지</h2>
+      <div class="step">
+        <svg class="hexicon" viewBox="0 0 40 40"><polygon points="20,3 34,11 34,29 20,37 6,29 6,11" fill="#c99a3e"/></svg>
+        <div><h3>개화기 벌통 관리</h3><p>꽃이 피는 시기에 맞춰 벌통을 배치하고 상태를 살핍니다.</p></div>
+      </div>
+      <div class="step">
+        <svg class="hexicon" viewBox="0 0 40 40"><polygon points="20,3 34,11 34,29 20,37 6,29 6,11" fill="#c99a3e"/></svg>
+        <div><h3>완숙까지 대기</h3><p>벌이 밀랍으로 벌집 뚜껑을 덮을 때까지 채밀하지 않습니다.</p></div>
+      </div>
+      <div class="step">
+        <svg class="hexicon" viewBox="0 0 40 40"><polygon points="20,3 34,11 34,29 20,37 6,29 6,11" fill="#c99a3e"/></svg>
+        <div><h3>비가열 여과</h3><p>열을 가하지 않고 이물질만 걸러냅니다. 효소가 그대로 살아있습니다.</p></div>
+      </div>
+      <div class="step">
+        <svg class="hexicon" viewBox="0 0 40 40"><polygon points="20,3 34,11 34,29 20,37 6,29 6,11" fill="#c99a3e"/></svg>
+        <div><h3>병입 · 발송</h3><p>채밀한 그대로 병에 담아 보내드립니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="compare">
+    <div class="wrap">
+      <h2>무엇이 다른가</h2>
+      <table>
+        <thead><tr><th>일반 시중꿀</th><th>예천 완숙꿀</th></tr></thead>
+        <tbody>
+          <tr><td>수분 많을 때 조기 채밀</td><td>밀랍 뚜껑 덮인 후 채밀</td></tr>
+          <tr><td>가열 살균 처리</td><td>비가열, 자연 그대로 여과</td></tr>
+          <tr><td>시럽 등 첨가 가능성</td><td>벌꿀 100%, 첨가물 없음</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="usage">
+    <div class="wrap">
+      <h2>이렇게 드세요</h2>
+      <div class="usage-grid">
+        <div class="usage-card"><h3>따뜻한 차에</h3><p>미지근한 물에 타면 향이 가장 잘 살아납니다.</p></div>
+        <div class="usage-card"><h3>요거트에</h3><p>플레인 요거트 위에 한 스푼이면 아침 대용식으로 충분합니다.</p></div>
+        <div class="usage-card"><h3>빵에 발라서</h3><p>버터와 함께 발라 먹으면 은은한 단맛이 배가됩니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cert">
+    <div class="wrap">
+      <h2>표시사항</h2>
+      <ul class="cert-list">
+        <li>원산지 : 경북 예천군</li>
+        <li>식품유형 : 벌꿀 (아카시아꿀 / 잡화꿀 — 채밀 시기별 표기)</li>
+        <li>가공 방식 : 비가열, 여과만 진행</li>
+      </ul>
+      <p class="cert-note">※ 돌 이전 영유아는 보툴리누스균 위험으로 꿀 섭취를 삼가주세요.</p>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap">
+      <h2>자주 묻는 질문</h2>
+      <div class="qa"><p class="q">꿀이 하얗게 굳었어요, 상한 건가요?</p><p class="a">아닙니다. 결정 현상은 완숙꿀일수록 자연스럽게 나타나는 현상입니다. 중탕으로 살짝 데우면 다시 녹습니다.</p></div>
+      <div class="qa"><p class="q">보관은 어떻게 하나요?</p><p class="a">직사광선을 피해 실온 보관하시면 됩니다. 냉장 보관 시 결정이 더 빨리 생길 수 있습니다.</p></div>
+      <div class="qa"><p class="q">유통기한이 긴 이유는요?</p><p class="a">벌꿀은 수분 함량이 낮아 미생물이 번식하기 어려운 식품이라 원래 유통기한이 긴 편입니다.</p></div>
+    </div>
+  </section>
+
+  <section class="final" id="final-order">
+    <div class="wrap">
+      <h2>이번 채밀분, 소량만 남았습니다</h2>
+      <p>완숙까지 기다린 만큼 생산량이 많지 않습니다.</p>
+      <span class="cta-btn">지금 주문하기</span>
+      <div class="shop-links">
+        <a href="https://www.coupang.com" class="shop-btn coupang" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          쿠팡에서 주문하기
+        </a>
+        <a href="https://shopping.naver.com" class="shop-btn naver" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          네이버에서 주문하기
+        </a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

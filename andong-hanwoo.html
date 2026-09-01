@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>안동 한우 — 한국만물</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#1c1613;
+    --charcoal-deep:#120e0b;
+    --wine:#6e1f2b;
+    --wine-deep:#531621;
+    --brass:#9c7a3c;
+    --text-light:#ede6da;
+    --stone:#8b8377;
+    --maxw:720px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--charcoal);
+    color:var(--text-light);
+    font-family:'Noto Sans KR',sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:'Song Myung',serif; margin:0; font-weight:400; }
+  .wrap{max-width:var(--maxw);margin:0 auto;}
+  section{padding:60px 28px;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:72px 28px 56px;text-align:left;}
+  .hero-tag{display:block;font-size:13.5px;color:var(--brass);letter-spacing:0.03em;margin-bottom:18px;}
+  .hero h1{font-size:34px;line-height:1.5;color:var(--text-light);}
+  .hero p.sub{margin-top:20px;font-size:15.5px;color:#b8b0a2;max-width:32ch;}
+  .cta-btn{
+    display:inline-block;
+    background:var(--wine);
+    color:var(--text-light);
+    font-weight:700;
+    font-size:16px;
+    padding:16px 32px;
+    border-radius:1px;
+    text-decoration:none;
+    margin-top:28px;
+    border:1px solid var(--brass);
+  }
+  .marbling{margin:40px 0 4px;display:flex;justify-content:center;}
+
+  /* ---------- GRADE ---------- */
+  .grade{background:var(--charcoal-deep);}
+  .grade h2{font-size:26px;margin-bottom:8px;color:var(--text-light);}
+  .grade .lede{font-size:14px;color:var(--stone);margin-bottom:34px;}
+  .grade-row{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:18px;
+    padding:20px 0;
+    border-bottom:1px solid #332822;
+    align-items:start;
+  }
+  .grade-row:last-child{border:none;}
+  .grade-badge{
+    font-family:'Song Myung',serif;
+    font-size:18px;
+    color:var(--brass);
+    border:1px solid var(--brass);
+    text-align:center;
+    padding:8px 0;
+    border-radius:1px;
+  }
+  .grade-row h3{font-size:16px;color:var(--text-light);margin-bottom:6px;font-family:'Noto Sans KR',sans-serif;font-weight:700;}
+  .grade-row p{font-size:13.5px;color:#b8b0a2;margin:0;}
+
+  /* ---------- CUTS ---------- */
+  .cuts{background:var(--charcoal);}
+  .cuts h2{font-size:26px;margin-bottom:30px;color:var(--text-light);}
+  .cut-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+  .cut-card{border:1px solid #3a2f28;padding:20px;border-radius:1px;}
+  .cut-card h3{font-size:16px;color:var(--brass);margin-bottom:6px;font-family:'Noto Sans KR',sans-serif;font-weight:700;}
+  .cut-card p{font-size:13.5px;color:#b8b0a2;margin:0;}
+
+  /* ---------- GIFT ---------- */
+  .gift{background:var(--wine-deep);}
+  .gift h2{font-size:24px;color:var(--text-light);margin-bottom:16px;}
+  .gift p{font-size:14.5px;color:#e0c9cd;max-width:44ch;}
+
+  /* ---------- CERT ---------- */
+  .cert{background:var(--charcoal-deep);}
+  .cert h2{font-size:23px;margin-bottom:22px;color:var(--text-light);}
+  .cert-list{list-style:none;margin:0;padding:0;display:grid;gap:13px;}
+  .cert-list li{font-size:14px;color:#b8b0a2;border-left:2px solid var(--brass);padding-left:14px;}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--charcoal);}
+  .faq h2{font-size:25px;margin-bottom:22px;color:var(--text-light);}
+  .qa{border-bottom:1px solid #332822;padding:18px 0;}
+  .qa:first-of-type{border-top:1px solid #332822;}
+  .qa .q{font-weight:700;font-size:15px;margin-bottom:6px;color:var(--text-light);}
+  .qa .a{font-size:14px;color:#b8b0a2;margin:0;}
+
+  /* ---------- FINAL ---------- */
+  .final{background:var(--wine);text-align:center;padding:52px 28px;}
+  .final h2{font-size:22px;color:var(--text-light);margin-bottom:10px;}
+  .final p{color:#e0c9cd;font-size:14px;margin-bottom:24px;}
+  .final .cta-btn{background:var(--charcoal-deep);}
+
+  @media(min-width:600px){
+    .hero h1{font-size:42px;}
+    .cut-grid{grid-template-columns:1fr 1fr 1fr;}
+  }
+/* ---------- SHOP LINKS ---------- */
+  .shop-links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:22px;
+    align-items:center;
+  }
+  .shop-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    width:100%;
+    max-width:320px;
+    padding:14px 20px;
+    border-radius:4px;
+    font-weight:700;
+    font-size:15px;
+    text-decoration:none;
+    color:#fff;
+  }
+  .shop-btn svg{flex-shrink:0;}
+  .shop-btn.coupang{background:#0a56c9;}
+  .shop-btn.naver{background:#03c75a;}
+  @media(min-width:420px){
+    .shop-links{flex-direction:row;justify-content:center;}
+    .shop-btn{width:auto;}
+  }
+</style>
+
+</head>
+<body>
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="hero-tag">경북 안동 · 한우</span>
+      <h1>시간이 만든<br>마블링</h1>
+      <p class="sub">안동 농가에서 오래 정성껏 키운 한우입니다. 등급과 부위를 확인하고 고르실 수 있습니다.</p>
+
+      <div class="marbling">
+        <svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="200" height="80" rx="4" fill="#3a1418"/>
+          <path d="M10 20 Q30 10 50 22 Q70 34 90 20 Q110 8 130 22 Q150 36 170 20 Q185 12 195 22" stroke="#c9a06a" stroke-width="2" fill="none" opacity="0.7"/>
+          <path d="M10 40 Q30 30 50 42 Q70 54 90 40 Q110 28 130 42 Q150 56 170 40 Q185 32 195 42" stroke="#c9a06a" stroke-width="2" fill="none" opacity="0.5"/>
+          <path d="M10 60 Q30 50 50 62 Q70 74 90 60 Q110 48 130 62 Q150 74 170 60 Q185 52 195 62" stroke="#c9a06a" stroke-width="2" fill="none" opacity="0.6"/>
+        </svg>
+      </div>
+
+      <a href="javascript:void(0);" onclick="document.getElementById('final-order').scrollIntoView({behavior:'smooth'});" class="cta-btn">지금 주문하기</a>
+    </div>
+  </section>
+
+  <section class="grade">
+    <div class="wrap">
+      <h2>등급을 확인하세요</h2>
+      <p class="lede">마블링(근내지방도) 기준으로 나뉘며, 숫자가 높을수록 지방이 촘촘합니다.</p>
+
+      <div class="grade-row">
+        <div class="grade-badge">1++</div>
+        <div><h3>최상급</h3><p>마블링이 가장 촘촘하고 고르게 퍼져 있습니다. 구이용으로 가장 선호됩니다.</p></div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-badge">1+</div>
+        <div><h3>상급</h3><p>마블링이 풍부하며 가격 대비 만족도가 높습니다.</p></div>
+      </div>
+      <div class="grade-row">
+        <div class="grade-badge">1</div>
+        <div><h3>일반 상급</h3><p>담백한 편으로 구이보다 국물 요리에 잘 어울립니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cuts">
+    <div class="wrap">
+      <h2>부위를 골라보세요</h2>
+      <div class="cut-grid">
+        <div class="cut-card"><h3>등심</h3><p>부드럽고 육즙이 풍부해 구이에 가장 많이 쓰입니다.</p></div>
+        <div class="cut-card"><h3>갈비</h3><p>씹는 맛이 좋고 찜·구이 모두 잘 어울립니다.</p></div>
+        <div class="cut-card"><h3>채끝</h3><p>등심보다 담백하며 스테이크로 즐기기 좋습니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gift">
+    <div class="wrap">
+      <h2>선물세트로도 준비됩니다</h2>
+      <p>명절이나 감사 인사가 필요한 자리에 어울리는 구성으로 포장해 드립니다. 등급과 부위를 원하시는 대로 조합할 수 있습니다.</p>
+    </div>
+  </section>
+
+  <section class="cert">
+    <div class="wrap">
+      <h2>표시사항</h2>
+      <ul class="cert-list">
+        <li>원산지 : 국내산 한우 (안동)</li>
+        <li>이력추적 : 개체별 이력번호 부착 (축산물이력제)</li>
+        <li>보관 : 냉장 또는 냉동, 상품 라벨의 안내를 따라주세요</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap">
+      <h2>자주 묻는 질문</h2>
+      <div class="qa"><p class="q">이력번호는 어떻게 확인하나요?</p><p class="a">포장지에 표기된 이력번호를 축산물이력제 홈페이지에 입력하면 사육 정보를 확인할 수 있습니다.</p></div>
+      <div class="qa"><p class="q">냉장과 냉동 중 무엇이 나은가요?</p><p class="a">빠르게 드실 계획이면 냉장을, 보관 기간이 길어질 경우 냉동을 권해드립니다.</p></div>
+      <div class="qa"><p class="q">선물세트 포장은 어떻게 되나요?</p><p class="a">등급과 부위 구성에 따라 별도 박스에 담아 발송해 드립니다.</p></div>
+    </div>
+  </section>
+
+  <section class="final" id="final-order">
+    <div class="wrap">
+      <h2>안동에서 키운 한우, 지금 만나보세요</h2>
+      <p>등급과 부위를 확인하고 원하시는 구성으로 주문하실 수 있습니다.</p>
+      <span class="cta-btn">지금 주문하기</span>
+      <div class="shop-links">
+        <a href="https://www.coupang.com" class="shop-btn coupang" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          쿠팡에서 주문하기
+        </a>
+        <a href="https://shopping.naver.com" class="shop-btn naver" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          네이버에서 주문하기
+        </a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
